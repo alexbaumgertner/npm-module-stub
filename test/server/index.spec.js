@@ -1,12 +1,10 @@
-import {describe, it} from 'mocha';
-import {expect} from 'chai';
-import Core from '../';
+import Core from '../../src/';
 
 /**
  * @see http://mochajs.org/
  * @see http://chaijs.com/api/bdd/
  */
-describe('Core', function() {
+describe('Core [server only]', function() {
     describe('base', function() {
         let input,
             coreInstance;

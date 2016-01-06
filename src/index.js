@@ -18,7 +18,7 @@ class Core {
      * @returns {*}
      */
     returnInput(input) {
-        return input;
+      return input;
     }
 }
 
