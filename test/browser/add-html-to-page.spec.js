@@ -1,8 +1,20 @@
 describe('Add HTML to page', () => {
-    it('should console.log window object', () => {
 
-        document.body.innerHTML = __html__['add-html-to-page.html'];
+    beforeEach(() => {
+        document.body.innerHTML = window.__html__['test/browser/test-context.html'];
+    });
 
-        expect(true).to.equal(true);
+    afterEach(() => {
+        document.body.innerHTML = '';
+    });
+
+
+    it('should add html to jQuery object', () => {
+        var $context = $('.context');
+        var content = 'test content' + Date.now();
+
+        $context.html(content);
+
+        expect($context.html()).to.equal(content);
     });
 });

@@ -9,10 +9,11 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             './node_modules/phantomjs-polyfill/bind-polyfill.js',
-            './test/browser/**/*.spec.js',
+            './test/util/**/*.js',
+            './test/common/**/*.html',
             './test/browser/**/*.html',
             './test/common/**/*.spec.js',
-            './test/common/**/*.html'
+            './test/browser/**/*.spec.js'
         ],
 
         // frameworks to use
