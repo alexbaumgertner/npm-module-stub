@@ -3,14 +3,15 @@ import webpackConfig from './webpack/webpack.karma.config';
 // Karma configuration here
 module.exports = function (config) {
     config.set({
-        logLevel: config.LOG_INFO,
         // list of files to exclude
         exclude: [],
         // list of files / patterns to load in the browser
         files: [
             './node_modules/phantomjs-polyfill/bind-polyfill.js',
             './test/browser/**/*.spec.js',
-            './test/common/**/*.spec.js'
+            './test/browser/**/*.html',
+            './test/common/**/*.spec.js',
+            './test/common/**/*.html'
         ],
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -25,7 +26,9 @@ module.exports = function (config) {
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
             './test/browser/**/*.spec.js': ['webpack', 'sourcemap'],
-            './test/common/**/*.spec.js': ['webpack', 'sourcemap']
+            './test/common/**/*.spec.js': ['webpack', 'sourcemap'],
+            './test/browser/**/*.html': ['html2js'],
+            './test/common/**/*.html': ['html2js']
         },
         // test results reporter to use
         reporters: ['progress', 'coverage', 'spec'],
@@ -38,12 +41,16 @@ module.exports = function (config) {
         },
         reportSlowerThan: 500,
         coverageReporter: {
-            reporters: [{
-                type: 'text'
-            }, {
-                type: 'lcovonly',
-                subdir: '.'
-            }]
+            dir: 'coverage',
+
+            reporters: [
+                { type: 'text' },
+                {
+                    type: 'lcovonly',
+                    subdir: '.',
+                    file: 'report-lcovonly.txt'
+                }
+            ]
         },
         webpack: {
             module: webpackConfig.module
@@ -63,7 +70,8 @@ module.exports = function (config) {
             'karma-ie-launcher',
             'karma-coverage',
             'karma-sourcemap-loader',
-            'karma-spec-reporter'
+            'karma-spec-reporter',
+            'karma-html2js-preprocessor'
         ],
         // Start these browsers, currently available:
         // - Chrome
