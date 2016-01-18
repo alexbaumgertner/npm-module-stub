@@ -34,7 +34,7 @@ const commonConfig = {
     ]
   },
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['', '.css', '.js']
     /* REACT:  extensions: ['', '.js', '.jsx'] */
   },
   plugins: [
@@ -42,7 +42,7 @@ const commonConfig = {
     new webpack.NoErrorsPlugin(),
 
     // Build CSS
-    // new ExtractTextPlugin(path.resolve(config.distDir, './build.css'), { allChunks: true }),
+    new ExtractTextPlugin(config.devCss, { allChunks: true }),
 
     // Enable notification panel notice
     new WebpackNotifierPlugin({ title: config._app, alwaysNotify: true }),

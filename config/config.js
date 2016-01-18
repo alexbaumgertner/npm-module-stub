@@ -8,8 +8,10 @@ const _root = path.resolve(__dirname, '../');
 
 const config = {
   _app: pkg.name,
-  minified: pkg.name + '.min.js',
   dev: pkg.name + '.js',
+  devCss: pkg.name + '.css',
+  minified: pkg.name + '.min.js',
+  minifiedCss: pkg.name + '.min.css',
   eslintDir: path.resolve(_root, '.eslintrc'),
   distDir: path.resolve(_root, 'lib'),
   sourceDir: path.resolve(_root, 'src'),
