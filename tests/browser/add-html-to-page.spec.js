@@ -1,7 +1,7 @@
 describe('Add HTML to page', () => {
 
   beforeEach(() => {
-    let html = window.__html__['tests/browser/test-context.html'];
+    let html = window.__html__['browser/test-context.html'];
     document.body.innerHTML = html;
   });
 

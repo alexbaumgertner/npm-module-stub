@@ -1,45 +1,53 @@
 import path from 'path';
 
+import projectConfig from './config';
 import webpackConfig from './webpack/webpack.karma.config.babel';
 
 module.exports = function(config) {
   config.set({
 
-    basePath: path.resolve(__dirname, '../'),
+    basePath: projectConfig.testDir,
 
     // list of files to exclude
     exclude: [],
 
     // list of files / patterns to load in the browser
     files: [
-      './node_modules/phantomjs-polyfill/bind-polyfill.js',
-      './tests/vendor/**/*.js',
-      './tests/common/**/*.html',
-      './tests/browser/**/*.html',
-      './tests/common/**/*.spec.js',
-      './tests/browser/**/*.spec.js'
+      // fix phantom 1.9.x
+      path.resolve(__dirname, '../node_modules/phantomjs-polyfill/bind-polyfill.js'),
+
+      'vendor/**/*.js',
+      'common/**/*.spec.js',
+      'common/**/*.html',
+      'browser/**/*.spec.js',
+      'browser/**/*.html'
     ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './tests/browser/**/*.spec.js': ['webpack', 'sourcemap'],
-      './tests/common/**/*.spec.js': ['webpack', 'sourcemap'],
-      './tests/browser/**/*.html': ['html2js'],
-      './tests/common/**/*.html': ['html2js']
+      'common/**/*.spec.js': ['webpack', 'sourcemap'],
+      'common/**/*.html': ['html2js'],
+
+      'browser/**/*.spec.js': ['webpack', 'sourcemap'],
+      'browser/**/*.html': ['html2js']
     },
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: [
-      'sinon-chai',
-      'sinon',
+      'mocha',
       'chai',
-      'mocha'
+      'sinon',
+      'sinon-chai'
     ],
 
     // test results reporter to use
-    reporters: ['progress', 'coverage', 'spec'],
+    reporters: [
+      'progress',
+      'coverage',
+      'spec'
+    ],
 
     specReporter: {
       maxLogLines: 5,
@@ -74,11 +82,11 @@ module.exports = function(config) {
     },
 
     plugins: [
-      'karma-sinon-chai',
-      'karma-sinon',
-      'karma-chai',
       'karma-webpack',
       'karma-mocha',
+      'karma-chai',
+      'karma-sinon',
+      'karma-sinon-chai',
       'karma-phantomjs-launcher',
       'karma-chrome-launcher',
       'karma-firefox-launcher',
