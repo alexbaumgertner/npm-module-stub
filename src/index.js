@@ -1,5 +1,5 @@
 /**
- * Checker Core
+ * Core
  */
 class Core {
 
