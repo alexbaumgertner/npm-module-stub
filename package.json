@@ -67,10 +67,6 @@
     "webpack": "^1.12.9",
     "webpack-notifier": "^1.2.1"
   },
-  "options": {
-    "mocha": "--require babel-core/register src/**/__tests__/**/*.js",
-    "mocha_courses": "--require babel-core/register tests/courses/**/*.js"
-  },
   "babel": {
     "ignore": [
       "test/**/*.js"

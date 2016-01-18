@@ -20,7 +20,6 @@ const commonConfig = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        include: config.sourceDir,
         loader: 'babel',
         query: {
           plugins: ['transform-runtime'],

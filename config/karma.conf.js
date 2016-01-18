@@ -1,19 +1,33 @@
+import path from 'path';
+
 import webpackConfig from './webpack/webpack.karma.config.babel';
 
-module.exports = function karmaConfig(config) {
+module.exports = function(config) {
   config.set({
+
+    basePath: path.resolve(__dirname, '../'),
+
     // list of files to exclude
     exclude: [],
 
     // list of files / patterns to load in the browser
     files: [
       './node_modules/phantomjs-polyfill/bind-polyfill.js',
-      './test/vendor/**/*.js',
-      './test/common/**/*.html',
-      './test/browser/**/*.html',
-      './test/common/**/*.spec.js',
-      './test/browser/**/*.spec.js'
+      './tests/vendor/**/*.js',
+      './tests/common/**/*.html',
+      './tests/browser/**/*.html',
+      './tests/common/**/*.spec.js',
+      './tests/browser/**/*.spec.js'
     ],
+
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+      './tests/browser/**/*.spec.js': ['webpack', 'sourcemap'],
+      './tests/common/**/*.spec.js': ['webpack', 'sourcemap'],
+      './tests/browser/**/*.html': ['html2js'],
+      './tests/common/**/*.html': ['html2js']
+    },
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -23,15 +37,6 @@ module.exports = function karmaConfig(config) {
       'chai',
       'mocha'
     ],
-
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-      './test/browser/**/*.spec.js': ['webpack', 'sourcemap'],
-      './test/common/**/*.spec.js': ['webpack', 'sourcemap'],
-      './test/browser/**/*.html': ['html2js'],
-      './test/common/**/*.html': ['html2js']
-    },
 
     // test results reporter to use
     reporters: ['progress', 'coverage', 'spec'],
@@ -125,8 +130,6 @@ module.exports = function karmaConfig(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false
   });
-
-  console.log("webpackConfig.module: ", webpackConfig.module);
 
   // Travis conf part
   if (process.env.TRAVIS) {
