@@ -59,6 +59,7 @@
     "karma-sourcemap-loader": "^0.3.6",
     "karma-spec-reporter": "0.0.23",
     "karma-webpack": "^1.7.0",
+    "local-web-server": "^1.1.0",
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
     "phantomjs-polyfill": "0.0.1",
@@ -90,7 +91,9 @@
     "eslint:fix": "eslint --fix ./src/**/*.js",
     "eslint:common": "eslint ./test/**/*.common.js",
     "eslint:server": "eslint ./test/**/*.server.js",
-    "eslint:browser": "eslint ./test/**/*.browser.js"
+    "eslint:browser": "eslint ./test/**/*.browser.js",
+    "examples:deps": "npm i local-web-server",
+    "examples:run": " ./node_modules/.bin/ws"
   },
   "dependencies": {}
 }
