@@ -84,16 +84,16 @@
     "prepublish": "npm run compile",
     "test": "npm run test:server && npm run test:browser",
     "test:server": "mocha --opts config/mocha.opts",
-    "test:browser": "./node_modules/.bin/karma start --single-run",
-    "karma:firefox": "./node_modules/.bin/karma start --browsers=Firefox",
-    "karma:chrome": "./node_modules/.bin/karma start --browsers=Chrome",
+    "test:browser": "karma start --single-run",
+    "karma:firefox": "karma start --browsers=Firefox",
+    "karma:chrome": "karma start --browsers=Chrome",
     "eslint:source": "eslint ./src/**/*.js",
     "eslint:fix": "eslint --fix ./src/**/*.js",
     "eslint:common": "eslint ./test/**/*.common.js",
     "eslint:server": "eslint ./test/**/*.server.js",
     "eslint:browser": "eslint ./test/**/*.browser.js",
     "examples:deps": "npm i local-web-server",
-    "examples:run": " ./node_modules/.bin/ws"
+    "examples:run": "ws"
   },
   "dependencies": {}
 }
