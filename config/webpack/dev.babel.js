@@ -4,7 +4,10 @@ import WebpackNotifierPlugin from 'webpack-notifier';
 
 import pkg from '../../package.json';
 import config from '../config';
-import commonConfig from './webpack.common.config.babel';
+import commonConfig from './common.babel';
+
+
+process.env.NODE_ENV = 'development';
 
 let developmentConfig = Object.assign({}, commonConfig);
 /*
@@ -23,7 +26,7 @@ developmentConfig.module.loaders = developmentConfig.module.loaders.concat([
 developmentConfig.plugins = developmentConfig.plugins.concat([
   new webpack.DefinePlugin({
     '__DEV__': true,
-    'process.env.NODE_ENV': JSON.stringify('development'),
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     VERSION: JSON.stringify(pkg.version)
   })
 ]);

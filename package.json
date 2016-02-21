@@ -61,6 +61,7 @@
     "karma-webpack": "^1.7.0",
     "local-web-server": "^1.1.0",
     "mocha": "^2.3.4",
+    "npm-run-all": "^1.5.1",
     "phantomjs": "^1.9.19",
     "phantomjs-polyfill": "0.0.1",
     "sinon": "^1.17.2",
@@ -78,22 +79,37 @@
     ]
   },
   "scripts": {
-    "compile": "npm run clean && set NODE_ENV=production && webpack --config ./config/webpack/webpack.production.config.babel.js --progress --profile --colors",
-    "compile-dev": "npm run clean && set NODE_ENV=development && webpack --config ./config/webpack/webpack.development.config.babel.js --progress --profile --colors",
-    "clean": "rm -rf lib",
-    "prepublish": "npm run compile",
-    "test": "npm run test:server && npm run test:browser",
+    "prepublish": "npm run build",
+
+
+    "build": "npm run build:prod",
+    "build:clean": "rm -rf lib",
+    "build:prod": "npm-run-all build:clean 'webpack -- --config ./config/webpack/prod.babel.js'",
+    "build:dev": "npm-run-all  build:clean 'webpack -- --config ./config/webpack/dev.babel.js'",
+
+
+    "webpack": "webpack",
+
+
+    "test": "npm-run-all --parallel test:*",
     "test:server": "mocha --opts config/mocha.opts",
-    "test:browser": "karma start --single-run",
-    "karma:firefox": "karma start --browsers=Firefox",
-    "karma:chrome": "karma start --browsers=Chrome",
+    "test:browser": "npm run karma -- --single-run",
+
+
+    "karma": "karma start",
+    "karma:firefox": "npm run karma -- --browsers=Firefox",
+    "karma:chrome": "npm run karma -- --browsers=Chrome",
+
+
     "eslint:source": "eslint ./src/**/*.js",
+    "eslint:tests": "eslint ./tests/**/*.js",
+
     "eslint:fix": "eslint --fix ./src/**/*.js",
-    "eslint:common": "eslint ./test/**/*.common.js",
-    "eslint:server": "eslint ./test/**/*.server.js",
-    "eslint:browser": "eslint ./test/**/*.browser.js",
+
+
+    "examples": "npm-run-all examples:deps examples:server",
     "examples:deps": "npm i local-web-server",
-    "examples:run": "ws"
+    "examples:server": "ws"
   },
   "dependencies": {}
 }

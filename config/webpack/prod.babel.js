@@ -4,7 +4,9 @@ import WebpackNotifierPlugin from 'webpack-notifier';
 
 import pkg from '../../package.json';
 import config from '../config';
-import commonConfig from './webpack.common.config.babel';
+import commonConfig from './common.babel';
+
+process.env.NODE_ENV = 'production';
 
 let productionConfig = Object.assign({}, commonConfig);
 
@@ -38,7 +40,7 @@ productionConfig.plugins = productionConfig.plugins.concat([
   new webpack.optimize.DedupePlugin(),
   new webpack.DefinePlugin({
     '__DEV__': false,
-    'process.env.NODE_ENV': JSON.stringify('production'),
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     VERSION: JSON.stringify(pkg.version)
   }),
   new webpack.optimize.UglifyJsPlugin({

@@ -9,6 +9,9 @@ const commonConfig = {
   entry: path.resolve(config.sourceDir, 'index.js'),
   cache: true,
   debug: true,
+  progress: true,
+  profile: true,
+  colors: true,
   output: {
     path: config.distDir,
     filename: config.dev,

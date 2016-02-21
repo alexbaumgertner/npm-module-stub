@@ -1,7 +1,7 @@
 import path from 'path';
 
 import projectConfig from './config';
-import webpackConfig from './webpack/webpack.karma.config.babel';
+import webpackConfig from './webpack/karma.babel';
 
 module.exports = function(config) {
   config.set({
