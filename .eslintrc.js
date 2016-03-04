@@ -9,6 +9,10 @@ module.exports = {
     'browser': true,
     'mocha': true
   },
+  
+  'globals': {
+    expect: true
+  },
 
   'ecmaFeatures': {
     'modules': true
