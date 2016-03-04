@@ -11,17 +11,17 @@ process.env.NODE_ENV = 'development';
 
 let developmentConfig = Object.assign({}, commonConfig);
 /*
-CSS font
-developmentConfig.module.loaders = developmentConfig.module.loaders.concat([
-  {
-    test: /.(ttf|eot|woff|woff2)$/,
-    loader: 'file?name=fonts/[name]_[hash].[ext]'
-  },
-  {
-    test: /.(png|jpg|svg|ico)$/,
-    loader: 'file?name=img/[name]_[hash].[ext]'
-  }
-]);*/
+ CSS font
+ developmentConfig.module.loaders = developmentConfig.module.loaders.concat([
+ {
+ test: /.(ttf|eot|woff|woff2)$/,
+ loader: 'file?name=fonts/[name]_[hash].[ext]'
+ },
+ {
+ test: /.(png|jpg|svg|ico)$/,
+ loader: 'file?name=img/[name]_[hash].[ext]'
+ }
+ ]);*/
 
 developmentConfig.plugins = developmentConfig.plugins.concat([
   new webpack.DefinePlugin({
