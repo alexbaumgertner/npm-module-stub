@@ -10,7 +10,7 @@ class Core {
      * @param {Object} options
      */
     constructor(options = { }) {
-
+      this.options = options;
     }
 
     /**

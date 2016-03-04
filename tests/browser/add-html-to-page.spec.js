@@ -1,3 +1,5 @@
+/*eslint-env browser, jquery, jasmine, mocha */
+
 describe('Add HTML to page', () => {
 
   beforeEach(() => {
@@ -11,8 +13,8 @@ describe('Add HTML to page', () => {
 
 
   it('should add html to jQuery object', () => {
-    var $context = jQuery('.context');
-    var content = 'test content' + Date.now();
+    let $context = jQuery('.context');
+    let content = 'test content' + Date.now();
 
     $context.html(content);
 

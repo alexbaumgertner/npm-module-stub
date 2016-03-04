@@ -101,6 +101,7 @@
     "karma:chrome": "npm run karma -- --browsers=Chrome",
 
 
+    "eslint": "npm-run-all eslint:source eslint:tests",
     "eslint:source": "eslint ./src/**/*.js",
     "eslint:tests": "eslint ./tests/**/*.js",
 
