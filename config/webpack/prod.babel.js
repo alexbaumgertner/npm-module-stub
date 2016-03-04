@@ -24,17 +24,17 @@ productionConfig.output = {
 };
 
 /*
-CSS fonts
-productionConfig.module.loaders = productionConfig.module.loaders.concat([
-  {
-    test: /.(ttf|eot|woff|woff2)$/,
-    loader: 'file?name=fonts/[hash].[ext]'
-  },
-  {
-    test: /.(png|jpg|svg|ico)$/,
-    loader: 'file?name=img/[hash].[ext]'
-  }
-]);*/
+ CSS fonts
+ productionConfig.module.loaders = productionConfig.module.loaders.concat([
+ {
+ test: /.(ttf|eot|woff|woff2)$/,
+ loader: 'file?name=fonts/[hash].[ext]'
+ },
+ {
+ test: /.(png|jpg|svg|ico)$/,
+ loader: 'file?name=img/[hash].[ext]'
+ }
+ ]);*/
 
 productionConfig.plugins = productionConfig.plugins.concat([
   new webpack.optimize.DedupePlugin(),

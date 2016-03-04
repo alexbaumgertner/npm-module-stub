@@ -45,10 +45,10 @@ const commonConfig = {
     new webpack.NoErrorsPlugin(),
 
     // Build CSS
-    new ExtractTextPlugin(config.devCss, { allChunks: true }),
+    new ExtractTextPlugin(config.devCss, {allChunks: true}),
 
     // Enable notification panel notice
-    new WebpackNotifierPlugin({ title: config._app, alwaysNotify: true }),
+    new WebpackNotifierPlugin({title: config._app, alwaysNotify: true}),
 
     // TODO: add description
     new webpack.optimize.OccurenceOrderPlugin()

@@ -1,3 +1,5 @@
+/*eslint-env browser, jquery, jasmine, mocha */
+
 import Core from '../../src/';
 
 /**
@@ -6,8 +8,8 @@ import Core from '../../src/';
  */
 describe('Core [browser only]', function() {
   describe('base', function() {
-    let input,
-      coreInstance;
+    let input;
+    let coreInstance;
 
     beforeEach(function() {
       input = Date.now();

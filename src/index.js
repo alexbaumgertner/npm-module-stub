@@ -5,23 +5,23 @@ import './index';
  */
 class Core {
 
-    /**
-     *
-     * @param {Object} options
-     */
-    constructor(options = { }) {
+  /**
+   *
+   * @param {Object} options
+   */
+  constructor(options = {}) {
+    this.options = options;
+  }
 
-    }
-
-    /**
-     * Return input as is
-     *
-     * @param {*} input
-     * @returns {*}
-     */
-    returnInput(input) {
-      return input;
-    }
+  /**
+   * Return input as is
+   *
+   * @param {*} input
+   * @returns {*}
+   */
+  returnInput(input) {
+    return input;
+  }
 }
 
 export default Core;
