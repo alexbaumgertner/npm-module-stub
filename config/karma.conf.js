@@ -89,7 +89,6 @@ module.exports = function(config) {
       'karma-sinon',
       'karma-sinon-chai',
       'karma-phantomjs-launcher',
-      'karma-phantomjs2-launcher',
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-ie-launcher',
@@ -107,7 +106,7 @@ module.exports = function(config) {
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
     // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    browsers: [/*'PhantomJS',*/ 'PhantomJS2'],
+    browsers: ['PhantomJS'],
 
     browserDisconnectTimeout: 10000,
 
