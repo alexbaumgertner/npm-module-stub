@@ -74,7 +74,8 @@ module.exports = function(config) {
     },
 
     webpack: {
-      module: webpackConfig.module
+      module: webpackConfig.module,
+      plugins: webpackConfig.plugins
     },
 
     webpackMiddleware: {
