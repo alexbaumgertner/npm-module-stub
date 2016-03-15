@@ -13,9 +13,6 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      // fix phantom 1.9.x
-      path.resolve(__dirname, '../node_modules/phantomjs-polyfill/bind-polyfill.js'),
-
       'vendor/**/*.js',
       'common/**/*.spec.js',
       'common/**/*.html',
