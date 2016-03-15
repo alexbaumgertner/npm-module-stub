@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/alexbaumgertner/npm-module-stub.svg?branch=master)](https://travis-ci.org/alexbaumgertner/npm-module-stub)
 # npm-module-stub
 
 * [ES2015](http://www.ecma-international.org/ecma-262/6.0/)
