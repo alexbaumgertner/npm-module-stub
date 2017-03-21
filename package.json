@@ -23,10 +23,6 @@
   "bugs": {
     "url": "https://github.com/alexbaumgertner/npm-module-stub/issues"
   },
-  "engines": {
-    "node": ">=5.0 <6",
-    "npm": ">=3.3 <4"
-  },
   "private": true,
   "homepage": "https://github.com/alexbaumgertner/npm-module-stub#readme",
   "devDependencies": {
